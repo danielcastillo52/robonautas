@@ -26,7 +26,7 @@ class SignalProcessing(Node):
 
     def timer_cb(self):
         self.last_w = np.sin(self.last_i - self.phase_shift)#gap
-        self.proc_w=((self.last_w)/ 2)#Reduce the amplitude in half
+        self.proc_w=((self.last_w + 1.0)/ 2)#Reduce the amplitude in half
 
         proc_signal=Float32()
         proc_signal.data= self.proc_w
